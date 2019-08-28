@@ -5,7 +5,34 @@ function init() {
   // Cancelliamo l'elemento con un click
   $(document).on("click", "p.delete", deleteList);
   // Aggiungiamo l'elemento in lista con un click
-  $("#submit").click();
+  $("#submit").click(createList);
+}
+
+// Funzione che svuota il container
+function clearList() {
+  $(".container").html("");
+}
+
+// Funzione per creare nuovi elementi
+function createList() {
+  // Dichiariamo una variabile con il testo inserito dall'utente
+  var input = $("#text-input");
+  var textuser = input.val();
+  // Chiamata AJAX per rimuovere un oggetto in base all'attributo [data-id]
+  $.ajax({
+    url: "http://157.230.17.132:3009/todos/",
+    method: "POST",
+    data: {
+      text: textuser
+    },
+    success: function () {
+      getTodoList()
+    },
+    error: function () {
+      alert("C'è stato un errore nel caricamento");
+    }
+  })
+  input.val("");
 }
 
 // Funzione che ci permette di cancellare gli elementi in lista
@@ -28,9 +55,11 @@ function deleteList() {
 
 // Funzione che ci permette di popolare la lista
 function getTodoList() {
+  // Puliamo tutti gli elementi nel container
+  clearList()
   // Chiamata AJAX per popolare la lista
   $.ajax({
-    url: "http://157.230.17.132:3009/todos",
+    url: "http://157.230.17.132:3009/todos/",
     method: "GET",
     success: function (data) {
       printList(data);

@@ -30,6 +30,7 @@ input {
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 /* Caratteristiche della lista elementi */
@@ -53,4 +54,5 @@ input {
 }
 .text {
   font-size: 24px;
+  text-align: center;
 }
