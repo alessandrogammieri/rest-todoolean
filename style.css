@@ -1,0 +1,56 @@
+/* REGOLE GENERALI */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  user-select: none;
+  list-style: none;
+}
+
+/* Titolo */
+h1 {
+  padding: 50px 25px;
+}
+
+/* Form per inserimento contenuti */
+input {
+  margin-left: 25px;
+  width: 300px;
+}
+#submit {
+  padding: 0 5px;
+}
+
+/* Contenitore del template */
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 50px 25px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Caratteristiche della lista elementi */
+.box {
+  margin-right: 20px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 2px 5px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.text {
+  font-size: 24px;
+}
